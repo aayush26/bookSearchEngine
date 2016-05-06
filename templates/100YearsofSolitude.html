@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Results</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bootstrap.min.css') }}">
+	<style type="text/css">
+#searchbar div { display: inline-block; }
+	</style>
+</head>
+<body>
+<div>
+	<center><h2>Top 3 Recommendations</h2></center>
+</div>
+<div>
+	<hr>
+	<table border="1" class="table table-hover">
+	<th>Books Title</th>
+	<th>URL</th>
+		<script language="javascript" type="text/javascript">
+			function replaceAll(str, find, replace) {
+		  		return str.replace(new RegExp(find, 'g'), replace);
+			}
+			var results = '{{ data }}';
+				results = results.replace("[","").replace("]","");
+				results = replaceAll(results, "&#39;, &#39;",";");
+				results = replaceAll(results, "&#39;","");
+				// urls = results;
+				urls = replaceAll(results," ","");
+				results = results.split(";");
+				urls = urls.split(";");
+			for (var i=0; i<results.length; i++) {
+				document.write("<tr><td>" + results[i] + "</td><td><a href=" + urls[i] + ">More</a></td></tr>");
+			}
+		</script>
+	</table>
+	</div>
+</body>
+</html>

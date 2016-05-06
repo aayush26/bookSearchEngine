@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Results</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bootstrap.min.css') }}">
+	<style type="text/css">
+#searchbar div { display: inline-block; }
+	</style>
+</head>
+<body>
+	<div>
+		<a href="/home" class="btn btn-default">Home</a>
+	</div>
+<div>
+	<center><h2>Results</h2></center>
+</div>
+	<script type="text/javascript">
+	// function replaceAll(str, find, replace) {
+ //  		return str.replace(new RegExp(find, 'g'), replace);
+	// }
+	// 	var results = '{{ data }}';
+	// 	results = results.replace("[","").replace("]","");
+	// 	results = replaceAll(results, "&#39;, &#39;",";");
+	// 	results = replaceAll(results, "&#39;","");
+	// 	// results = results.replace("','",";").split(";");
+	// 	// results = results.replace(/'/g, '"');
+	// 	// var check = JSON.parse(results);
+	// 	// results = results.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+	// 	document.write(results);
+	</script>
+	<div>
+	<hr>
+	<table border="1" class="table table-hover">
+	<th>Books Title</th>
+	<th>Recommendations</th>
+		<script language="javascript" type="text/javascript">
+			function replaceAll(str, find, replace) {
+		  		return str.replace(new RegExp(find, 'g'), replace);
+			}
+			var results = '{{ data }}';
+				results = results.replace("[","").replace("]","");
+				results = replaceAll(results, "&#39;, &#39;",";");
+				results = replaceAll(results, "&#39;","");
+				// urls = results;
+				urls = replaceAll(results," ","");
+				results = results.split(";");
+				urls = urls.split(";");
+			for (var i=0; i<results.length; i++) {
+				document.write("<tr><td>" + results[i] + "</td><td><a href=" + urls[i] + ">More</a></td></tr>");
+			}
+		</script>
+	</table>
+	</div>
+<center>
+	<div style="width: 30%;">
+			<form action="/query" class="form input" role="form" method="POST" id="searchbar">
+		<div style=" padding-right: 0px">
+		   <input type="text" style=" overflow: hidden;width: 100%;" placeholder="Enter query " class="form-control" name="search"/>
+		</div>
+				<input type="submit" style="float: right; padding: 8px;" value="search" />
+	</form>
+
+	</div>
+<!-- 
+	<script type="text/javascript">
+	var a = "http://www.google.com";
+	document.write("<a href="+a+">Click</a>");
+	</script>
+ -->
+
+</center>
+</body>
+</html>

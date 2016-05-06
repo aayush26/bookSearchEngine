@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Semantic Book Search Bar</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bootstrap.min.css') }}">
+	<style type="text/css">
+		.input {
+			width: 30%; 
+			position: fixed; 
+			padding: 20px; 
+			top: 260px; 
+			right: 470px;
+		}
+		#searchbar div { display: inline-block; }
+	</style>
+</head>
+<body>
+<center>
+	<h1>SEMANTIC BOOK SEARCH ENGINE</h1>
+</center>
+<div>
+	<form action="/query" class="form input" role="form" method="POST" id="searchbar">
+		<div style=" padding-right: 0px">
+		   <input type="text" style="width: 150%;" placeholder="Enter query " class="form-control" name="search"/>
+		</div>
+				<input type="submit" style="float: right; padding: 8px;" value="search" />
+	</form>
+</div>
+</body>
+</html>
