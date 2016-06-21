@@ -12,7 +12,7 @@ Language: Python
 Demo: http://bearch.herokuapp.com/  
 
  
-Refenrences:  
+References:  
 https://radimrehurek.com/gensim/    
 https://www.python.org/doc/    
 http://flask.pocoo.org/  
