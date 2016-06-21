@@ -24,18 +24,26 @@ def query_get():
 	output = indexing(query)
 	return render_template('result.html', data=output)
 
-@app.route("/home")
-def home():
-	# query = str(request.form['search'])
-	# output = indexing(query)
-	return render_template('home.html')
+# @app.route("/100YearsofSolitude")
+# def YearsofSolitude():
+# 	query = d[0][1]
+# 	output = indexing(query)
+# 	output = output[1:4]			# Top 3 recommendations
+# 	return render_template('100YearsofSolitude.html', data=output)
 
-@app.route("/100YearsofSolitude")
-def YearsofSolitude():
-	query = d[0][1]
+@app.route("/recommendation/<title>")
+def recommend(title):
+	# print d
+	query = ""
+	output = ""
+	for i,j in d:
+		if i==title:
+			query = i+j
+			break
+	# query = d[0][1]
 	output = indexing(query)
 	output = output[1:4]			# Top 3 recommendations
-	return render_template('100YearsofSolitude.html', data=output)
+	return render_template('recommendations.html', data=output)
 
 def indexing(query):
 	dictionary = corpora.Dictionary.load('books.dict')
@@ -49,12 +57,12 @@ def indexing(query):
 	sims = index[vec_lsi]
 	sims = sorted(enumerate(sims), key=lambda item: -item[1])
 	name = []
-	print len(sims)
+	# print len(sims)
 	for i in range(len(sims)):
-		print i
-		print sims[i]
+		# print i
+		# print sims[i]
 		name.append(books[sims[i][0]])
-	print len(name)
+	# print len(name)
 	return name
 
 if __name__ == "__main__":
