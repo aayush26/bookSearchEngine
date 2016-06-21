@@ -9,25 +9,11 @@
 </head>
 <body>
 	<div>
-		<a href="/home" class="btn btn-default">Home</a>
+		<a href="/" class="btn btn-default">Home</a>
 	</div>
 <div>
 	<center><h2>Results</h2></center>
 </div>
-	<script type="text/javascript">
-	// function replaceAll(str, find, replace) {
- //  		return str.replace(new RegExp(find, 'g'), replace);
-	// }
-	// 	var results = '{{ data }}';
-	// 	results = results.replace("[","").replace("]","");
-	// 	results = replaceAll(results, "&#39;, &#39;",";");
-	// 	results = replaceAll(results, "&#39;","");
-	// 	// results = results.replace("','",";").split(";");
-	// 	// results = results.replace(/'/g, '"');
-	// 	// var check = JSON.parse(results);
-	// 	// results = results.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-	// 	document.write(results);
-	</script>
 	<div>
 	<hr>
 	<table border="1" class="table table-hover">
@@ -45,8 +31,10 @@
 				urls = replaceAll(results," ","");
 				results = results.split(";");
 				urls = urls.split(";");
+				// alert(results);
 			for (var i=0; i<results.length; i++) {
-				document.write("<tr><td>" + results[i] + "</td><td><a href=" + urls[i] + ">More</a></td></tr>");
+				document.write("<tr><td>" + results[i] + "</td><td><a href='/recommendation/"+results[i]+"'>More</a></td></tr>");
+				// alert(results[i]);
 			}
 		</script>
 	</table>
@@ -61,12 +49,6 @@
 	</form>
 
 	</div>
-<!-- 
-	<script type="text/javascript">
-	var a = "http://www.google.com";
-	document.write("<a href="+a+">Click</a>");
-	</script>
- -->
 
 </center>
 </body>
